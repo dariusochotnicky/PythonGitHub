@@ -1,31 +1,25 @@
-
-ovocie = ["jablko", "banan", "hruska", "marhula", "slivka"]
-zelenina = ["mrkva", "petrzlen", "celer", "zemiak"]
-sladkosti = ["cokolada", "cukor"]
-nastroj= ["lopata", "ryl", "kosa"]
-
-nakupny_kosik = ["mrkva", "mlieko", "celer", "cokolada", "jogurt", "chlieb", "jablko", "zemiak", "cukor", "banan",]
+produkty = {
+    "cukor": (1.5, "sladkost"), "banan": (0.5, "ovocie"), "jablko": (0.7, "ovocie"),
+      "chlieb": (1.2, "ine"), "cokolada": (2.0, "sladkost"), "mlieko": (1.0, "ine")
+}
 
 
-while True:
-    print("co chcete pridat do kosika?")
-    vstup = input()
-    if vstup.lower() == "uz nic" or vstup == "koniec":
-        break
+
+
+nakupny_kosik = ["cukor", "banan", "jablko", "chlieb", "cokolada", "mlieko"]
+
+pocet = int(input("kolko veci chcete pridat do kosika?\n"))
+while pocet:
+    print("co chcete pridat?")
+    nazov = input().strip().lower()
+
+    if nazov in produkty:
+        nakupny_kosik.append(nazov)
+        pocet -=1
     else:
-        nakupny_kosik.append(vstup)
-
-print("----------------------")
-
+        print("takato polozka nie je v zozname.")
 
 for polozka in nakupny_kosik:
-    if polozka in ovocie:
-        print(f"{polozka} je ovocie")
-    elif polozka in zelenina:
-        print(f"{polozka} je zelenina")
-    elif polozka in sladkosti:
-        print(f"{polozka} je sladkost")
-    elif polozka in nastroj:
-        print(f"{polozka} je nastroj")
-    else:
-        print(f"{polozka} je nieco ine")
+    cena, kategoria = produkty[polozka]
+    print(f"{polozka} - {cena} EUR, - {kategoria}")
+
