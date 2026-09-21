@@ -21,12 +21,17 @@ while True:
         celkova_cena = celkova_cena + sklad[polozka][0]
         cena, kategoria, mnozstvo = sklad[polozka]
 
-        sklad[polozka] = (cena, kategoria, mnozstvo - 1)
+        
 
-   else:
-        print("nemame")
+        sklad[polozka] = (cena, kategoria, mnozstvo - 1)
     else:
         print("nemame")
+    if polozka not in sklad.keys():
+        print("nemame")
+
+    if mnozstvo == 0:
+        print("vypredane")
+         
 
 print(celkova_cena)
 
