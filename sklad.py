@@ -6,7 +6,7 @@ sklad = {
     "cokolada": (2.0, "sladkost", 10),
     "mlieko": (1.0, "ine", 3)
 }
-
+print("vitajte v tescu")
 print("mate nasu klubovu kartu?")
 klubova_karta = input()
 if klubova_karta == "ano":
