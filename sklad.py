@@ -7,6 +7,25 @@ sklad = {
     "mlieko": (1.0, "ine", 3)
 }
 
+print("mate nasu klubovu kartu?")
+klubova_karta = input()
+if klubova_karta == "ano":
+        print("mate 10% zlavu")
+        for polozka in sklad.keys():
+            cena, kategoria, mnozstvo = sklad[polozka]
+            nova_cena = cena * 0.9
+            sklad[polozka] = (nova_cena, kategoria, mnozstvo)
+else:
+    print("nemate zlavu")
+
+zlavovy_kod = {
+    "samko": 0.2,
+    "beli": 0.4,
+    "marek": 0.3
+}                                   
+
+print("mate nejaky zlavovy kod?")
+zlavovy_kod = input()
 
 kosik = []
 
@@ -21,8 +40,6 @@ while True:
         celkova_cena = celkova_cena + sklad[polozka][0]
         cena, kategoria, mnozstvo = sklad[polozka]
 
-        
-
         sklad[polozka] = (cena, kategoria, mnozstvo - 1)
     else:
         print("nemame")
@@ -31,12 +48,13 @@ while True:
 
     if mnozstvo == 0:
         print("vypredane")
-         
+        celkova_cena = celkova_cena - sklad[polozka][0]
 
-print(celkova_cena)
-
-
-
-
+if zlavovy_kod == "beli":
+    celkova_cena = celkova_cena * 0.6
+elif zlavovy_kod == "samko":
+    celkova_cena = celkova_cena * 0.8
+elif zlavovy_kod == "marek":
+    celkova_cena = celkova_cena * 0.7
 zaokruhli_celkova_cena = round(celkova_cena, 2)
-print(zaokruhli_celkova_cena)
+print("celkova_cena : ", zaokruhli_celkova_cena, "€")
