@@ -22,7 +22,7 @@ zlavove_kody = {
 }
 
 # Heslo pre admina
-ADMIN_HESLO = "zebraci"
+ADMIN_HESLO = "polis14"
 
 class PolozkaKosika(BaseModel):
     nazov: str
